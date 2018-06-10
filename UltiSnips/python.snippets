@@ -212,7 +212,7 @@ def write_init_body(args, parents, snip):
 		snip.rv += '\n' + snip.mkline('', indent='')
 
 	for arg in args:
-		snip += "self._%s = %s" % (arg, arg)
+		snip += "self.%s = %s" % (arg, arg)
 
 
 def write_slots_args(args, snip):
@@ -539,7 +539,7 @@ endsnippet
 snippet roprop "Read Only Property" b
 @property
 def ${1:name}(self):
-	${2:return self._$1}$0
+	${2:return self.$1}$0
 endsnippet
 
 snippet rwprop "Read write property" b
@@ -557,10 +557,10 @@ if t[2]:
 else:
 	snip.rv = ""`
 	def fget(self):
-		return self._$1$0
+		return self.$1$0
 
 	def fset(self, value):
-		self._$1 = value
+		self.$1 = value
 	return locals()
 
 $1 = property(**$1(), doc=$1.__doc__)
