@@ -1,18 +1,167 @@
 #version 1
 #PREAMBLE
 #newcommand
+
+# ural command
+snippet utl use tikz library
+	\\usetikzlibrary{calc, intersections, through,positioning, backgrounds, arrows, decorations.pathmorphing, fit, shapes, graphs}
+snippet toc tableofcontents
+	\\tableofcontents
+snippet mt maketitle
+	\\maketitle
+snippet hline hline
+	\\hline
+snippet verb verb
+	\\verb|${1}|${0}
+
+snippet mi math inline
+	$ ${1}$${0}
+snippet mo math another line
+	$$ ${1}$$${0}
+# fill 
+snippet fcircle draw a circle by tikz
+	\\fill[${1}] (${2}) circle [radius=${4}];
+snippet fcycle draw a circle by tikz
+	\\fill[${1}] (${2}) -- cycle;
+snippet fellipse draw a ellipse by tikz
+	\\fill[${1}] (${2}) ellipse (${3} and ${4});
+snippet frectangle draw a rectangle by tikz
+	\\fill[${1}] (${2}) rectangle (${4});
+snippet farc draw a arc
+	\\fill[${1}] (${2})--(${3}) arc [start angle=${4},end angle=${5}, radius=${6}];
+
+snippet pinter path intersections
+	\\path[name intersections={of=${1}, by={[label=${2:above}:\$${3}\$]$3}}];
+snippet pedge path edge
+	\\path (${1}) edge[${2}] (${3});${0}
+# shade  top to bottom
+snippet stcircle 
+	\\shade[top color=${1}, bottom color=${2}] (${3}) circle [radius=${4}];
+snippet stellipse
+	\\shade[top color=${1}, bottom color=${2}] (${3}) ellipse (${4} and ${5});
+snippet strectangle
+	\\shade[top color=${1}, bottom color=${2}] (${3}) rectangle (${4});
+snippet starc
+	\\shade[top color=${1}, bottom color=${2}] (${3})--(${4}) arc [start angle=${5},end angle=${6}, radius=${7}];
+
+# shade  left to right
+snippet slcircle 
+	\\shade[left color=${1}, right color=${2}] (${3}) circle [radius=${4}];
+snippet slellipse
+	\\shade[left color=${1}, right color=${2}] (${3}) ellipse (${4} and ${5});
+snippet slrectangle
+	\\shade[left color=${1}, right color=${2}] (${3}) rectangle (${4});
+snippet slarc
+	\\shade[left color=${1}, right color=${2}] (${3})--(${4}) arc [start angle=${5},end angle=${6}, radius=${7}];
+
+# shade  inner to outer
+snippet sicircle 
+	\\shade[inner color=${1}, outer color=${2}] (${3}) circle [radius=${4}];
+snippet siellipse
+	\\shade[inner color=${1}, outer color=${2}] (${3}) ellipse (${4} and ${5});
+snippet sirectangle
+	\\shade[inner color=${1}, outer color=${2}] (${3}) rectangle (${4});
+snippet siarc
+	\\shade[inner color=${1}, outer color=${2}] (${3})--(${4}) arc [start angle=${5},end angle=${6}, radius=${7}];
+
+# shade  ball
+snippet sbcircle 
+	\\shade[ball color=${1}] (${3}) circle [radius=${4}];
+snippet sbellipse
+	\\shade[ball color=${1}] (${3}) ellipse (${4} and ${5});
+snippet sbrectangle
+	\\shade[ball color=${1}] (${3}) rectangle (${4});
+snippet sbarc
+	\\shade[ball color=${1}] (${3})--(${4}) arc [start angle=${5},end angle=${6}, radius=${7}];
+	
+# shade&draw  top to bottom
+snippet stcircle 
+	\\shadedraw[top color=${1}, bottom color=${2}, draw=${3}] (${4}) circle [radius=${5}];
+snippet stellipse                                                
+	\\shadedraw[top color=${1}, bottom color=${2}, draw=${3}] (${4}) ellipse (${5} and ${6});
+snippet strectangle                                              
+	\\shadedraw[top color=${1}, bottom color=${2}, draw=${3}] (${4}) rectangle (${5});
+snippet starc                                                    
+	\\shadedraw[top color=${1}, bottom color=${2}, draw=${3}] (${4})--(${5}) arc [start angle=${6},end angle=${7}, radius=${8}];
+                                                                 
+# shade&draw  left to right                                   
+snippet slcircle                                              
+	\\shadedraw[left color=${1}, right color=${2}, draw=${3}] (${4}) circle [radius=${5}];
+snippet slellipse                                                
+	\\shadedraw[left color=${1}, right color=${2}, draw=${3}] (${4}) ellipse (${5} and ${6});
+snippet slrectangle                                              
+	\\shadedraw[left color=${1}, right color=${2}, draw=${3}] (${4}) rectangle (${5});
+snippet slarc                                                    
+	\\shadedraw[left color=${1}, right color=${2}, draw=${3}] (${4})--(${5}) arc [start angle=${6},end angle=${7}, radius=${8}];
+
+# shade&draw  inner to outer
+snippet sicircle 
+	\\shadedraw[inner color=${1}, outer color=${2}, draw=${3}] (${4}) circle [radius=${5}];
+snippet siellipse
+	\\shadedraw[inner color=${1}, outer color=${2}, draw=${3}] (${4}) ellipse (${5} and ${6});
+snippet sirectangle
+	\\shadedraw[inner color=${1}, outer color=${2}, draw=${3}] (${4}) rectangle (${5});
+snippet siarc
+	\\shadedraw[inner color=${1}, outer color=${2}, draw=${3}] (${4})--(${5}) arc [start angle=${6},end angle=${7}, radius=${8}];
+
+# shade&draw  ball
+snippet sbcircle 
+	\\shadedraw[ball color=${1}, draw=${2}] (${3}) circle [radius=${4}];
+snippet sbellipse
+	\\shadedraw[ball color=${1}, draw=${2}] (${3}) ellipse (${4} and ${5});
+snippet sbrectangle
+	\\shadedraw[ball color=${1}, draw=${2}] (${3}) rectangle (${4});
+snippet sbarc
+	\\shadedraw[ball color=${1}, draw=${2}] (${3})--(${4}) arc [start angle=${5},end angle=${6}, radius=${7}];
+
+# fill and draw
+snippet fdcircle fill and draw a circle by tikz
+	\\filldraw[${1}] (${2}) circle [radius=${4}];
+snippet fdellipse fill and draw a ellipse by tikz
+	\\filldraw[${1}] (${2}) ellipse (${3} and ${4});
+snippet fdrectangle fill and draw a rectangle by tikz
+	\\filldraw[${1}] (${2}) rectangle (${4});
+snippet fdarc fill and draw a arc
+	\\filldraw[${1}] (${2})--(${3}) arc [start angle=${4},end angle=${5}, radius=${6}];
+
+# clip
+snippet ccircle draw a circle by tikz
+	\\clip (${2}) circle [radius=${4}];
+snippet cellipse draw a ellipse by tikz
+	\\clip (${2}) ellipse (${3} and ${4});
+snippet crectangle draw a rectangle by tikz
+	\\clip (${2}) rectangle (${4});
 snippet dcircle draw a circle by tikz
-	\\draw[${1}] (${2:0},${3:0}) circle [radius=${4}];
+	\\draw[${1}] (${2}) circle [radius=${4}];
+
+# draw
+snippet dellipse draw a ellipse by tikz
+	\\draw[${1}] (${2}) ellipse (${3} and ${4});
 snippet darc draw a arc
-	\\draw[${1}] (${2},${3}) arc [start angle=${4},end angle=${5}, radius=${6}];
+	\\draw[${1}] (${2}) arc [start angle=${4},end angle=${5}, radius=${6}];
+snippet node input a node
+	\\node[${1}](${2}) at (${3}) \{${4}\};
 snippet dgrid draw a grid by tikz
 	\\draw[step=${1:.5cm},${2:gray},${3:very thin}] (${4},$4) grid (${5},$5);
 snippet drectangle draw a rectangle by tikz
-	\\draw[${1}] (${2},${3}) rectangle (${4},${5});
+	\\draw[${1}] (${2}) rectangle (${4});
 snippet dparabola draw a parabola by tikz
-	\\draw[${1}] (${2},${3}) parabola (${4},${5});
+	\\draw[${1}] (${2}) parabola (${4});
 snippet dline draw a line by tikz
-	\\draw[${1}] (${2},${3}) -- (${4},${5});
+	\\draw[${1}] (${2}) -- (${4});
+snippet dnode draw a node by tikz
+	\\draw (${1}) node[${2}]{${3}};
+
+snippet ts tikzstyle
+	\\tikzstyle{${1}} = [${2}]
+	${0}
+snippet cd coordinate
+	\\coordinate[label=${1:left}:\textcolor{${2:black}}{${3}}] (${4}) at (${5});
+	${0}
+snippet for foreach
+	\\foreach \\i in {${1}}
+	${0}
+
 snippet tikzp	edit the picture by tikz
 	\\begin{tikzpicture}
 		% 引入图片
@@ -79,20 +228,44 @@ snippet ctex	insert the Chinese templete
 		${1}
 	\\end{document}
 
+#snippet beamer
+	#\\documentclass[xcolor=dvipsnames]{beamer}
+	#\\usecolortheme{whale}
+	#\\usepackage[UTF8, noindent, heading]{ctex}
+	#\\usepackage{graphicx}
+	#\\usepackage{mathtools}
+	#\\usetheme{${0:Madrid}}
+	#\\usefonttheme[onlymath]{serif}
+	#\\title{${1}}
+	#\\date{${2}}
+	#\\author{${3}}
+	#\\begin{document}
+	#\\maketitle
+	#${4}
+	#\\end{document}
 snippet beamer
-	\\documentclass[xcolor=dvipsnames]{beamer}
-	\\usecolortheme{whale}
-	\\usepackage[UTF8, noindent, heading]{ctex}
-	\\usepackage{graphicx}
-	\\usepackage{mathtools}
-	\\usetheme{${0:PaloAlto}}
-	\\title{${1}}
-	\\date{${2}}
-	\\author{${3}}
+	\\documentclass[xetex,mathserif,serif]{beamer}
+	\\usetheme{easy}
+
+	\\title{${1:Title}}
+	\\subtitle{${2:Sub title}}
+	\\author{${3:Sun Fu}}
+	\\institute{${4:NB University}}
 	\\begin{document}
-	\\maketitle
-	${4}
+
+	\\begin{frame}
+		\\titlepage
+	\\end{frame}
+
+	${0:frame}
+
+	\\begin{frame}
+		\\centering
+		{\\Huge{完!}}
+	\\end{frame}
 	\\end{document}
+
+
 snippet doc	insert document
 	\\begin{document}
 	${0}
@@ -102,11 +275,23 @@ snippet quota insert document
 	${1}
 	\\end{quotation}
 	${2}
+snippet verse insert document
+	\\begin{verse}
+	${1}
+	\\end{verse}
+	${2}
+snippet verbatim insert code
+	\\begin{verbatim}
+	${1}
+	\\end{verbatim}
+	${2}
 snippet nc \newcommand
 	\\newcommand{\\${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
 #usepackage
 snippet up \usepackage
 	\\usepackage[${1:options}]{${2:package}} ${0}
+snippet dc \documentclass
+	\\documentclass{${1:article}} ${0}
 #newunicodechar
 snippet nuc \newunicodechar
 	\\newunicodechar{${1}}{${2:\\ensuremath}${3:tex-substitute}}} ${0}
@@ -133,6 +318,14 @@ snippet center center environment
 	\\begin{center}
 		${0:${VISUAL}}
 	\\end{center}
+snippet flushleft flushleft environment
+	\\begin{flushleft}
+		${0:${VISUAL}}
+	\\end{flushleft}
+snippet flushright flushright environment
+	\\begin{flushright}
+		${0:${VISUAL}}
+	\\end{flushright}
 # Align(ed)
 snippet ali align(ed) environment
 	\\begin{align${1:ed}}
@@ -189,6 +382,7 @@ snippet enumi enumerate environment
 # Itemize
 snippet item itemize environment
 	\\begin{itemize}
+		\\setlength{\\itemindent}{${1}}
 		\\item ${0}
 	\\end{itemize}
 snippet it \item
@@ -331,6 +525,12 @@ snippet ms mathscr
 #misc
 snippet ft \footnote
 	\\footnote{${1:${VISUAL:text}}} ${0}
+snippet mp \marginpar
+	\\marginpar{${1:${VISUAL:text}}} ${0}
+snippet rmp \reversemarginpar
+	\\reversemarginpar ${0}
+snippet nmp \normalmarginpar
+	\\normalmarginpar ${0}
 snippet fig figure environment (includegraphics)
 	\\begin{figure}
 	\\begin{center}
@@ -384,7 +584,7 @@ snippet sum \sum^{}_{}
 snippet lim \lim_{}
 	\\lim_{${1:n \\to \\infty}} ${0}
 snippet frame frame environment
-	\\begin{frame}[${1:t}]{${2:title}}
+	\\begin{frame}[${1:plain}]{${2:title}}
 		${0:${VISUAL}}
 	\\end{frame}
 snippet block block environment
@@ -440,3 +640,86 @@ snippet urlc
 	\\url{`@+`} ${0}
 snippet hrefc
 	\\href{`@+`}{${1}} ${0}
+
+snippet tilde mathscr
+	\\tilde{${1}}${0}
+snippet hat mathscr
+	\\hat{${1}}${0}
+snippet app mathscr
+	\\approx${0}
+snippet star mathscr
+	\\star{0}
+
+snippet ,a mathscr
+	\\alpha${0}
+snippet ,b mathscr
+	\\beta${0}
+snippet ,c mathscr
+	\\chi${0}
+snippet ,d mathscr
+	\\delta${0}
+snippet ,e mathscr
+	\\epsilon${0}
+snippet ,g mathscr
+	\\gamma${0}
+snippet ,k mathscr
+	\\kappa${0}
+snippet ,l mathscr
+	\\lambda${0}
+snippet ,m mathscr
+	\\mu${0}
+snippet ,n mathscr
+	\\nu${0}
+snippet ,o mathscr
+	\\omega${0}
+snippet ,p mathscr
+	\\phi${0}
+snippet ,r mathscr
+	\\rho${0}
+snippet ,s mathscr
+	\\sigma${0}
+snippet ,t mathscr
+	\\theta${0}
+snippet ,x mathscr
+	\\xi${0}
+
+snippet ,A mathscr
+	\\Alpha${0}
+snippet ,B mathscr
+	\\Beta${0}
+snippet ,C mathscr
+	\\Chi${0}
+snippet ,D mathscr
+	\\Delta${0}
+snippet ,E mathscr
+	\\Epsilon${0}
+snippet ,G mathscr
+	\\Gamma${0}
+snippet ,K mathscr
+	\\Kappa${0}
+snippet ,L mathscr
+	\\Lambda${0}
+snippet ,M mathscr
+	\\Mu${0}
+snippet ,N mathscr
+	\\Nu${0}
+snippet ,O mathscr
+	\\Omega${0}
+snippet ,P mathscr
+	\\Phi${0}
+snippet ,R mathscr
+	\\Rho${0}
+snippet ,S mathscr
+	\\Sigma${0}
+snippet ,T mathscr
+	\\Theta${0}
+snippet ,X mathscr
+	\\Xi${0}
+snippet dot mathscr
+	\\dot${0}
+snippet cdot mathscr
+	\\cdot${0}
+snippet odot mathscr
+	\\odot${0}
+snippet odots mathscr
+	\\odots${0}

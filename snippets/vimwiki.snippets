@@ -9,6 +9,7 @@ snippet title
 	tags: ${3}
 	---
 	${4}
+
 snippet [
 	[${1:text}](http://${2:address})
 snippet [*
@@ -466,6 +467,10 @@ snippet tt typewriter (monospace) text
 #Math font
 snippet mf mathfrak
 	\\mathfrak{${1:${VISUAL:text}}} ${0}
+snippet mB mathbb
+	\\mathbb{${1:${VISUAL:text}}} ${0}
+snippet mb mathbf
+	\\mathbf{${1:${VISUAL:text}}} ${0}
 snippet mc mathcal
 	\\mathcal{${1:${VISUAL:text}}} ${0}
 snippet ms mathscr
@@ -723,3 +728,86 @@ snippet pullquote
 	{% pullquote %}
 	${1:text} {" ${2:quote} "} ${0:text}
 	{% endpullquote %}
+
+snippet tilde mathscr
+	\\tilde{${1}}${0}
+snippet hat mathscr
+	\\hat{${1}}${0}
+snippet app mathscr
+	\\approx${0}
+snippet star mathscr
+	\\star{0}
+
+snippet ,a mathscr
+	\\alpha${0}
+snippet ,b mathscr
+	\\beta${0}
+snippet ,c mathscr
+	\\chi${0}
+snippet ,d mathscr
+	\\delta${0}
+snippet ,e mathscr
+	\\epsilon${0}
+snippet ,g mathscr
+	\\gamma${0}
+snippet ,k mathscr
+	\\kappa${0}
+snippet ,l mathscr
+	\\lambda${0}
+snippet ,m mathscr
+	\\mu${0}
+snippet ,n mathscr
+	\\nu${0}
+snippet ,o mathscr
+	\\omega${0}
+snippet ,p mathscr
+	\\phi${0}
+snippet ,r mathscr
+	\\rho${0}
+snippet ,s mathscr
+	\\sigma${0}
+snippet ,t mathscr
+	\\theta${0}
+snippet ,x mathscr
+	\\xi${0}
+
+snippet ,A mathscr
+	\\Alpha${0}
+snippet ,B mathscr
+	\\Beta${0}
+snippet ,C mathscr
+	\\Chi${0}
+snippet ,D mathscr
+	\\Delta${0}
+snippet ,E mathscr
+	\\Epsilon${0}
+snippet ,G mathscr
+	\\Gamma${0}
+snippet ,K mathscr
+	\\Kappa${0}
+snippet ,L mathscr
+	\\Lambda${0}
+snippet ,M mathscr
+	\\Mu${0}
+snippet ,N mathscr
+	\\Nu${0}
+snippet ,O mathscr
+	\\Omega${0}
+snippet ,P mathscr
+	\\Phi${0}
+snippet ,R mathscr
+	\\Rho${0}
+snippet ,T mathscr
+	\\Theta${0}
+snippet ,S mathscr
+	\\Sigma${0}
+snippet ,X mathscr
+	\\Xi${0}
+snippet dot mathscr
+	\\dot${0}
+snippet cdot mathscr
+	\\cdot${0}
+snippet odot mathscr
+	\\odot${0}
+snippet odots mathscr
+	\\odots${0}

@@ -144,3 +144,339 @@ snippet pullquote
 	{% pullquote %}
 	${1:text} {" ${2:quote} "} ${0:text}
 	{% endpullquote %}
+
+# Align(ed)
+# Matrix
+snippet mat smart matrix environment
+	\\begin{${1:p/b/v/V/B/small}matrix}
+		${0:${VISUAL}}
+	\\end{$1matrix}
+# Cases
+snippet cas cases environment
+	\\begin{cases}
+		${1:equation}, &\\text{ if }${2:case}\\
+		${0:${VISUAL}}
+	\\end{cases}
+# Split
+snippet spl split environment
+	\\begin{split}
+		${0:${VISUAL}}
+	\\end{split}
+# Part
+snippet part document \part
+	\\part{${1:part name}} % (fold)
+	\\label{prt:${2:$1}}
+	${0}
+	% part $2 (end)
+# Chapter
+snippet cha \chapter
+	\\chapter{${1:chapter name}}
+	\\label{cha:${2:$1}}
+	${0}
+# Section
+snippet sec \section
+	\\section{${1:section name}}
+	\\label{sec:${2:$1}}
+	${0}
+# Section without number
+snippet sec* \section*
+	\\section*{${1:section name}}
+	\\label{sec:${2:$1}}
+	${0}
+# Sub Section
+snippet sub \subsection
+	\\subsection{${1:subsection name}}
+	\\label{sub:${2:$1}}
+	${0}
+# Sub Section without number
+snippet sub* \subsection*
+	\\subsection*{${1:subsection name}}
+	\\label{sub:${2:$1}}
+	${0}
+# Sub Sub Section
+snippet ssub \subsubsection
+	\\subsubsection{${1:subsubsection name}}
+	\\label{ssub:${2:$1}}
+	${0}
+# Sub Sub Section without number
+snippet ssub* \subsubsection*
+	\\subsubsection*{${1:subsubsection name}}
+	\\label{ssub:${2:$1}}
+	${0}
+# Paragraph
+snippet par \paragraph
+	\\paragraph{${1:paragraph name}}
+	\\label{par:${2:$1}}
+	${0}
+# Sub Paragraph
+snippet subp \subparagraph
+	\\subparagraph{${1:subparagraph name}}
+	\\label{subp:${2:$1}}
+	${0}
+snippet ni \noindent
+	\\noindent
+	${0}
+#References
+snippet itd description \item
+	\\item[${1:description}] ${0:item}
+snippet figure reference to a figure
+	${1:Figure}~\\ref{${2:fig:}}
+snippet table reference to a table
+	${1:Table}~\\ref{${2:tab:}}
+snippet listing reference to a listing
+	${1:Listing}~\\ref{${2:list}}
+snippet section reference to a section
+	${1:Section}~\\ref{sec:${2}} ${0}
+snippet page reference to a page
+	${1:page}~\\pageref{${2}} ${0}
+snippet index \index
+	\\index{${1:index}} ${0}
+#Citations
+snippet citen \citen
+	\\citen{${1}} ${0}
+# natbib citations
+snippet citep \citep
+	\\citep{${1}} ${0}
+snippet citet \citet
+	\\citet{${1}} ${0}
+snippet cite \cite[]{}
+	\\cite[${1}]{${2}} ${0}
+snippet citea \citeauthor
+	\\citeauthor{${1}} ${0}
+snippet citey \citeyear
+	\\citeyear{${1}} ${0}
+snippet fcite \footcite[]{}
+	\\footcite[${1}]{${2}}${0}
+#Formating text: italic, bold, underline, small capital, emphase ..
+snippet ita italic text
+	\\textit{${1:${VISUAL:text}}} ${0}
+snippet bf bold face text
+	\\textbf{${1:${VISUAL:text}}} ${0}
+snippet under underline text
+	\\underline{${1:${VISUAL:text}}} ${0}
+snippet emp emphasize text
+	\\emph{${1:${VISUAL:text}}} ${0}
+snippet sc small caps text
+	\\textsc{${1:${VISUAL:text}}} ${0}
+#Choosing font
+snippet sf sans serife text
+	\\textsf{${1:${VISUAL:text}}} ${0}
+snippet rm roman font text
+	\\textrm{${1:${VISUAL:text}}} ${0}
+snippet tt typewriter (monospace) text
+	\\texttt{${1:${VISUAL:text}}} ${0}
+#Math font
+snippet mf mathfrak
+	\\mathfrak{${1:${VISUAL:text}}} ${0}
+snippet mB mathbb
+	\\mathbb{${1:${VISUAL:text}}} ${0}
+snippet mb mathbf
+	\\mathbf{${1:${VISUAL:text}}} ${0}
+snippet mc mathcal
+	\\mathcal{${1:${VISUAL:text}}} ${0}
+snippet ms mathscr
+	\\mathscr{${1:${VISUAL:text}}} ${0}
+
+snippet tilde mathscr
+	\\tilde{${1}}${0}
+snippet hat mathscr
+	\\hat{${1}}${0}
+snippet app mathscr
+	\\approx${0}
+snippet star mathscr
+	\\star{0}
+
+
+snippet ,a mathscr
+	\\alpha${0}
+snippet ,b mathscr
+	\\beta${0}
+snippet ,c mathscr
+	\\chi${0}
+snippet ,d mathscr
+	\\delta${0}
+snippet ,e mathscr
+	\\epsilon${0}
+snippet ,g mathscr
+	\\gamma${0}
+snippet ,k mathscr
+	\\kappa${0}
+snippet ,l mathscr
+	\\lambda${0}
+snippet ,m mathscr
+	\\mu${0}
+snippet ,n mathscr
+	\\nu${0}
+snippet ,o mathscr
+	\\omega${0}
+snippet ,p mathscr
+	\\phi${0}
+snippet ,r mathscr
+	\\rho${0}
+snippet ,s mathscr
+	\\sigma${0}
+snippet ,t mathscr
+	\\theta${0}
+snippet ,x mathscr
+	\\xi${0}
+
+snippet ,A mathscr
+	\\Alpha${0}
+snippet ,B mathscr
+	\\Beta${0}
+snippet ,C mathscr
+	\\Chi${0}
+snippet ,D mathscr
+	\\Delta${0}
+snippet ,E mathscr
+	\\Epsilon${0}
+snippet ,G mathscr
+	\\Gamma${0}
+snippet ,K mathscr
+	\\Kappa${0}
+snippet ,L mathscr
+	\\Lambda${0}
+snippet ,M mathscr
+	\\Mu${0}
+snippet ,N mathscr
+	\\Nu${0}
+snippet ,O mathscr
+	\\Omega${0}
+snippet ,P mathscr
+	\\Phi${0}
+snippet ,R mathscr
+	\\Rho${0}
+snippet ,S mathscr
+	\\Sigma${0}
+snippet ,T mathscr
+	\\Theta${0}
+snippet ,X mathscr
+	\\Xi${0}
+
+snippet dot mathscr
+	\\dot${0}
+snippet cdot mathscr
+	\\cdot${0}
+snippet odot mathscr
+	\\odot${0}
+snippet odots mathscr
+	\\odots${0}
+
+
+#misc
+snippet ft \footnote
+	\\footnote{${1:${VISUAL:text}}} ${0}
+snippet fig figure environment (includegraphics)
+	\\begin{figure}
+	\\begin{center}
+		\\includegraphics[scale=${1}]{Figures/${2}}
+	\\end{center}
+	\\caption{${3}}
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+snippet tikz figure environment (tikzpicture)
+	\\begin{figure}[htpb]
+	\\begin{center}
+	\\begin{tikzpicture}[scale=${1:1}, transform shape]
+		${2}
+	\\end{tikzpicture}
+	\\end{center}
+	\\caption{${3}}
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+snippet subfig subfigure environment
+	\\begin{subfigure}[${1}]{${2:\\textwidth}}
+	\\begin{center}
+		${3}
+	\\end{center}
+	\\caption{${4}}
+	\\label{fig:${5}}
+	\\end{subfigure}
+	${0}
+snippet tikzcd tikzcd environment in equation
+	\\begin{equation}
+	\\begin{tikzcd}
+		${1}
+	\\end{tikzcd}
+	\\end{equation}
+	${0}
+snippet tikzcd* tikzcd environment in equation*
+	\\begin{equation*}
+	\\begin{tikzcd}
+		${1}
+	\\end{tikzcd}
+	\\end{equation*}
+	${0}
+#math
+snippet $ 
+	$$ ${1} $$ ${0}
+
+snippet stackrel \stackrel{}{}
+	\\stackrel{${1:above}}{${2:below}} ${0}
+snippet frac \frac{}{}
+	\\frac{${1:num}}{${2:denom}} ${0}
+snippet sum \sum^{}_{}
+	\\sum^{${1:n}}_{${2:i=1}} ${0}
+snippet prod \prod^{}_{}
+	\\prod^{${1:n}}_{${2:i=1}} ${0}
+snippet lim \lim_{}
+	\\lim_{${1:n \\to \\infty}} ${0}
+snippet frame frame environment
+	\\begin{frame}[${1:t}]{${2:title}}
+		${0:${VISUAL}}
+	\\end{frame}
+snippet block block environment
+	\\begin{block}{${1:title}}
+		${0:${VISUAL}}
+	\\end{block}
+snippet alert alertblock environment
+	\\begin{alertblock}{${1:title}}
+		${0:${VISUAL}}
+	\\end{alertblock}
+snippet example exampleblock environment
+	\\begin{exampleblock}{${1:title}}
+		${0:${VISUAL}}
+	\\end{exampleblock}
+snippet col2 two-column environment
+	\\begin{columns}
+		\\begin{column}{0.5\\textwidth}
+			${1}
+		\\end{column}
+		\\begin{column}{0.5\\textwidth}
+			${0}
+		\\end{column}
+	\\end{columns}
+snippet \{ \{ \}
+	\\{ ${0} \\}
+#delimiter
+snippet lr left right
+	\\left${1} ${0} \\right$1
+snippet lr( left( right)
+	\\left( ${0} \\right)
+snippet lr| left| right|
+	\\left| ${0} \\right|
+snippet lr{ left\{ right\}
+	\\left\\{ ${0} \\right\\}
+snippet lr[ left[ right]
+	\\left[ ${0} \\right]
+snippet lra langle rangle
+	\\langle ${0} \\rangle
+# Code listings
+snippet lst
+	\\begin{listing}[language=${1:language}]
+		${0:${VISUAL}}
+	\\end{listing}
+snippet lsi
+	\\lstinline|${1}| ${0}
+# Hyperlinks
+snippet url
+	\\url{${1}} ${0}
+snippet href
+	\\href{${1}}{${2}} ${0}
+# URL from Clipboard.
+snippet urlc
+	\\url{`@+`} ${0}
+snippet hrefc
+	\\href{`@+`}{${1}} ${0}

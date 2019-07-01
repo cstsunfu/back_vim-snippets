@@ -1,6 +1,86 @@
 priority -50
 
 extends texmath
+#global !p
+
+#def create_matrix(snip):
+
+        #matrix_str = (snip.buffer[snip.line].split('mat')[0]+'matrix').strip()
+
+        #rows = 'x'.join(snip.buffer[snip.line].split("x", 2)[:-1])
+        #cols = 'x'.join(snip.buffer[snip.line].split("x", 2)[-1:])
+
+        #int_val = lambda string: int(''.join(s for s in string if s.isdigit()))
+
+        #rows = int_val(rows)
+        #cols = int_val(cols)
+
+        #offset = cols + 1
+        #old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+
+        #snip.buffer[snip.line] = ''
+
+        #final_str = old_spacing + "\\begin{"+matrix_str+"}\n"
+
+        #for i in range(rows):
+                #final_str += old_spacing + '\t'
+                #final_str += " & ".join(['$' + str(i * cols + j + offset) for j in range(cols)])
+
+                #final_str += " \\\\\\\n"
+
+        #final_str += old_spacing + "\\end{"+matrix_str+"}\n$0"
+
+        #snip.expand_anon(final_str)
+
+#endglobal
+
+#pre_expand "create_matrix(snip)"
+#snippet "(small|[bBpvV])?mat(rix)?(\d+)x(\d+)" "Generate (small|[bBpvV])?matrix of *rows* by *columns*" br
+#endsnippet
+
+snippet vec "vector" w
+\\overrightarrow{${1}} ${0}
+endsnippet
+
+snippet inf "infty" w
+\\infty ${0}
+endsnippet
+
+snippet ol "overline" w
+\\overline{ ${1}} ${0}
+endsnippet
+
+snippet ul "underline" w
+\\underline{ ${1}} ${0}
+endsnippet
+
+snippet ub "underbrace" w
+\\underbrace{ ${1}}_{${2}} ${0}
+endsnippet
+
+snippet ob "overbrace" w
+\\overbrace{ ${1}}^{${2}} ${0}
+endsnippet
+
+snippet sq "input \sqrt" w
+\\sqrt{${1}}${0}
+endsnippet
+
+snippet mo "math anotherline" w
+$$ ${VISUAL}${1}$$${0}
+endsnippet
+
+snippet mi "math inline" w
+$ ${VISUAL}${1}$${0}
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
 
 snippet "b(egin)?" "begin{} / end{}" br
 \begin{${1:something}}
@@ -13,6 +93,7 @@ snippet abs "abstract environment" b
 	$0
 \end{abstract}
 endsnippet
+
 
 snippet tab "tabular / array environment" b
 \begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
@@ -46,11 +127,11 @@ snippet enum "Enumerate" b
 \end{enumerate}
 endsnippet
 
-snippet item "Itemize" b
-\begin{itemize}
-	\item $0
-\end{itemize}
-endsnippet
+#snippet item "Itemize" b
+#\begin{itemize}
+	#\item $0
+#\end{itemize}
+#endsnippet
 
 snippet desc "Description" b
 \begin{description}
@@ -153,3 +234,8 @@ ${2:${VISUAL:code}}
 \end{minted}$0
 endsnippet
 # vim:ft=snippets:
+
+snippet abc "abc" w
+\\abccccccccccc
+${0}
+endsnippet

@@ -1,0 +1,63 @@
+
+snippet vec "vector" w
+\\overrightarrow{${1}} ${0}
+endsnippet
+
+snippet inf "infty" w
+\\infty ${0}
+endsnippet
+
+snippet ol "overline" w
+\\overline{ ${1}} ${0}
+endsnippet
+
+snippet ul "underline" w
+\\underline{ ${1}} ${0}
+endsnippet
+
+snippet ub "underbrace" w
+\\underbrace{ ${1}}_{${2}} ${0}
+endsnippet
+
+snippet ob "overbrace" w
+\\overbrace{ ${1}}^{${2}} ${0}
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet "be(ta)?" "input \beta" wr
+\\beta
+endsnippet
+
+snippet zt "input \zeta" w
+\\zeta
+endsnippet
+
+snippet sq "input \sqrt" w
+\\sqrt{${1}}${0}
+endsnippet
+
+snippet mo "math anotherline" w
+$$ ${VISUAL}${1}$$${0}
+endsnippet
+snippet mi "math anotherline" w
+$ ${VISUAL}${1}$${0}
+endsnippet
+
+snippet p "input \pi" w
+\\pi
+endsnippet
+
+snippet al "input \alpha" w
+\\alpha
+endsnippet
+
+snippet int "input \int" w
+\\int _\{${1}\}^\{${2}\}${0}
+endsnippet
