@@ -711,4 +711,18 @@ snippet pmdoc "pocoo style module doc string" b
 $0
 endsnippet
 
+
+
+global !p
+def fun(snip):
+	print(snip.snippet_start)
+	print(snip.snippet_end)
+endglobal
+
+#post_jump "fun(snip)"
+snippet d "method declaration" i
+def ()
+	`!p print("nihao", snip.snippet_start)`
+endsnippet
+
 # vim:ft=snippets:

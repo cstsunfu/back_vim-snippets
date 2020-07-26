@@ -1,0 +1,34 @@
+snippet todo "todo deadline" bA
+* TODO $1
+DEADLINE: [`!p
+import time
+snip.rv=time.strftime("%Y-%m-%d %a %H:%M", time.localtime())
+`]
+:LOGBOOK:
+CLOCK: [`!p
+import time
+snip.rv=time.strftime("%Y-%m-%d %a %H:%M", time.localtime())
+`]--[`!p
+import time
+snip.rv=time.strftime("%Y-%m-%d %a %H:%M", time.localtime())
+`] => 00:00
+:END:
+endsnippet
+
+snippet sche "schedule" bA
+* TODO $1
+SCHEDULED: [`!p
+import time
+snip.rv=time.strftime("%Y-%m-%d %a %H:%M", time.localtime())
+`]
+:LOGBOOK:
+CLOCK: [`!p
+import time
+snip.rv=time.strftime("%Y-%m-%d %a %H:%M", time.localtime())
+`]--[`!p
+import time
+snip.rv=time.strftime("%Y-%m-%d %a %H:%M", time.localtime())
+`] => 00:00
+
+:END:
+endsnippet

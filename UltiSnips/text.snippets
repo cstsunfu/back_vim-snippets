@@ -1,0 +1,10 @@
+snippet t
+<tag>${VISUAL:inside text/should/is/g}</tag>
+endsnippet
+snippet f
+${1:3} + ${2:5} = ${3:`!p snip.rv = float(t[1]) + float(t[2])`}
+${0}
+endsnippet
+snippet = "desc" "snip.last_placeholder" Ae
+`!p snip.rv = snip.context.current_text` == nil
+endsnippet

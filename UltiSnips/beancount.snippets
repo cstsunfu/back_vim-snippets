@@ -1,0 +1,36 @@
+snippet inc "include" b
+include "${1:accounts}.bean"
+${0}
+endsnippet
+
+snippet trans2 "once transaction" b
+`!v strftime("%F")` ${1:*} "${2:target}" "${3:description}" #${4:tag}
+	${5:Assert}	${6:0} CNY
+	${7:Expense}	${8: `!p 
+try:
+	snip.rv=-float(t[6])
+except:
+	snip.rv=0`} CNY
+endsnippet
+
+snippet trans3 "once transaction" b
+`!v strftime("%F")` ${1:*} "${2:target}" "${3:description}" #${4:tag}
+	${5:Assert}	${6:0} CNY
+	${7:Liabilities}	${8:0} CNY
+	${9:Expense}	${10: `!p 
+try:
+	snip.rv=-float(t[6]) -float(t[8])
+except:
+	snip.rv=0`} CNY
+endsnippet
+
+
+snippet ob "open balance" b
+`!v strftime("%F")` ${1:*} "${2:target}" "${3:description}" #${4:tag}
+	${5:Assert}	${6:0} CNY
+	Equity:OpenBalance `!p 
+try:
+	snip.rv=-float(t[6])
+except:
+	snip.rv=0` CNY
+endsnippet
