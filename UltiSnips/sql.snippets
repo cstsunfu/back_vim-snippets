@@ -1,0 +1,73 @@
+snippet f "f"
+FROM ${1}
+endsnippet
+
+snippet g "g"
+GROUP BY ${1}
+endsnippet
+
+snippet l "l"
+LIMIT ${1:100}
+endsnippet
+
+snippet lj "lj"
+LEFT JOIN ${1} ON ${2}
+endsnippet
+
+snippet o "o"
+ORDER BY ${1:CREATED_AT} DESC
+endsnippet
+
+snippet s "select"
+SELECT ${1};
+endsnippet
+
+snippet sd "sd"
+SELECT DISTINCT ${1}
+endsnippet
+
+snippet sel "select"
+SELECT 
+*
+FROM ${1:}
+WHERE ${2:}=${3}
+${4:ORDER BY ${5} DESC}
+${5:LIMIT ${6:100}};
+endsnippet
+
+snippet w "w"
+WHERE ${1}
+endsnippet
+
+snippet c "count"
+COUNT(${1:*})
+endsnippet
+
+snippet sgc "select group count"
+SELECT
+${1:type}, 
+COUNT(*) C
+FROM ${2}
+WHERE 1=1
+GROUP BY $1
+ORDER BY C DESC
+LIMIT 100;
+endsnippet
+
+snippet sid "select by id"
+SELECT * 
+FROM ${1} 
+WHERE id = ${2};
+endsnippet
+
+snippet u "update"
+UPDATE 
+endsnippet
+
+snippet up "update"
+UPDATE ${1} SET ${2} WHERE 1=1 AND ${3}
+endsnippet
+
+snippet inn "is not null"
+IS NOT NULL
+endsnippet
