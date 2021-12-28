@@ -111,7 +111,7 @@ def triple_quotes_handle_trailing(snip, quoting_style):
 		snip.rv = snip.c
 
 def get_style(snip):
-	style = snip.opt("g:ultisnips_python_style", "normal")
+	style = snip.opt("g:ultisnips_python_style", "google")
 
 	if    style == "doxygen": return DOXYGEN
 	elif  style == "sphinx": return SPHINX
@@ -129,7 +129,7 @@ def format_arg(arg, style):
 	elif style == NORMAL:
 		return ":%s: TODO" % arg
 	elif style == GOOGLE:
-		return "%s (TODO): TODO" % arg
+		return "%s: TODO" % arg
 	elif style == JEDI:
 		return ":type %s: TODO" % arg
 	elif style == NUMPY:
@@ -142,7 +142,7 @@ def format_return(style):
 	elif style in (NORMAL, SPHINX, JEDI):
 		return ":returns: TODO"
 	elif style == GOOGLE:
-		return "Returns: TODO"
+		return "Returns: \n\t\tTODO"
 
 
 def write_docstring_args(args, snip):
